@@ -8,7 +8,7 @@ const Textbox = React.forwardRef(
         {label && <label htmlFor={name} className="text-slate-800 "></label>}
         <div>
           <input type={type} name={name} placeholder={placeholder} ref={ref} {...register} aria-invalid={error ? 'true' : 'false'}
-          className={clsx('', className)} />
+          className={clsx('bg-transparent px-3 py-2.5 2xl:py-3 border border-gray-300 placeholder-gray-400 text-gray-900', className)} />
         </div>
       </div>
     );
