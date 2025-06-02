@@ -19,7 +19,7 @@ useEffect(() => {
     <span className='flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base border-gray-300 text-gray-600'>Manage your task in one place!</span>
     <p>
       <span>Cloud-Based</span>
-      <span>Clo </span>     
+      <span>Task Manager </span>     
     </p>
   </div>
 </div>
