@@ -69,6 +69,7 @@ useEffect(() => {
               error={errors.password ? errors.password.message : ''}
               />
               <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>Forget Password?</span>
+              <Button type='submit' label='Submit' className='w-full h-10 bg-blue-700 text-white' />
             </div>
           </form>
         </div>
