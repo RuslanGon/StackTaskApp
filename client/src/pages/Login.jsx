@@ -58,7 +58,7 @@ useEffect(() => {
               </p>
             </div>
             <div className="flex flex-col gap-y-5">
-              <Textbox placeholder="enter your email" type="email" name='email' lable='Email Adress'
+              <Textbox placeholder="enter your email" type="email" name='email' label='Email Address'
               className='w-full rounded-full' 
               register={register('email', {required: 'Email Adress is required'})}
               error={errors.email ? errors.email.message : ''}
