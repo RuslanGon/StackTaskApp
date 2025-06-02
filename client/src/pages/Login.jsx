@@ -63,6 +63,11 @@ useEffect(() => {
               register={register('email', {required: 'Email Adress is required'})}
               error={errors.email ? errors.email.message : ''}
               />
+               <Textbox placeholder="enter your password" type="text" name='password' label='Password'
+              className='w-full rounded-full' 
+              register={register('password', {required: 'Password is required'})}
+              error={errors.password ? errors.password.message : ''}
+              />
             </div>
           </form>
         </div>
