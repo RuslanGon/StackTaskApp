@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import "../App.css";
 import axios from 'axios'
+import Textbox from './Textbox.jsx';
 
 const Login = () => {
 const user = ''
@@ -57,9 +58,11 @@ useEffect(() => {
               </p>
             </div>
             <div className="flex flex-col gap-y-5">
-              <input placeholder="enter your email" type="email" name='email' lable='Email Adress'
+              <Textbox placeholder="enter your email" type="email" name='email' lable='Email Adress'
               className='w-full rounded-full' 
-              register={register}/>
+              register={register('email', {required: 'Email Adress is required'})}
+              error={errors.email ? errors.email.message : ''}
+              />
             </div>
           </form>
         </div>
