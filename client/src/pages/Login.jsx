@@ -2,11 +2,23 @@ import React, { useEffect } from 'react'
 import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import "../App.css";
+import axios from 'axios'
 
 const Login = () => {
 const user = ''
 const { register, handleSubmit, formState: {errors}} = useForm()   
 const navigate = useNavigate()
+
+const submitHandle = async(e) => {
+e.preventDefault()
+console.log('submit');
+try {
+  const response = await axios.patch('/')
+  return response.data
+} catch (error) {
+  console.log(error);
+}
+}
 
 useEffect(() => {
     user && navigate('/dashboard')
@@ -27,8 +39,13 @@ useEffect(() => {
     </div>
   </div>
 </div>
-<div>
-  
+<div className='w-full md:w-1/3 p-4 md:p-1 flex flex-col justify-center items-center'>
+  <form onSubmit={handleSubmit(submitHandle)} 
+  className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'>
+<div className=''>
+  <p>Welcome back!</p>
+</div>
+  </form>
 </div>
 </div>
   </div>
