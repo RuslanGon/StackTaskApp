@@ -1,30 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-  user: localStorage.getItem('userinfo') ? JSON.parse(localStorage.getItem('userinfo')) : null
+  user: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
+  isSidebarOpen: false
   };
 
   const authSlice = createSlice({
     name: "auth",
     initialState: INITIAL_STATE,
-    extraReducers: (builder) => {
-        builder
-          .addCase(apiRegistor.pending, (state) => {
-            state.isLoading = true;
-            state.isError = false;
-          })
-          .addCase(apiRegistor.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.isSignedIn = true;
-            state.userData = action.payload.user
-            state.token = action.payload.token
-          })
-          .addCase(apiRegistor.rejected, (state) => {
-            state.isLoading = false;
-            state.isError = true;
-          })
-
-      }
+  reducers: {
+setCredentials : (state, action) => {
+    state.user = action.
+    localStorage.setItem('userInfo')
+}
+  }
   });
   
   export const authReducer = authSlice.reducer;
