@@ -66,17 +66,15 @@ const Sidebar = () => {
   const NavLink = ({ el }) => {
     return (
       <Link
-      className={clsx(
-        "w-full lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-base transition-colors duration-200",
-        path === el.link.split("/")[1]
-          ? "bg-blue-600 text-white"
-          : "text-gray-800 hover:bg-[#2564ed2d] hover:text-blue-600"
-      )}
       to={el.link}
       onClick={closeSidebar}
+      className={clsx(
+        "w-full lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 text-base hover:bg-[#2564ed2d]",
+        path === el.link.split("/")[0] ? "bg-blue-700 text-neutral-100" : ""
+      )}
     >
       {el.icon}
-      <span className="hover:text-[#2564ed]">{el.label}</span>
+      <span className='hover:text-[#2564ed]'>{el.label}</span>
     </Link>
     );
   };
