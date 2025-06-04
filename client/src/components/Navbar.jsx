@@ -7,6 +7,7 @@ import NotificationPanel from './NotificationPanel.jsx';
 
 const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
+  console.log(user);
   const dispatch = useDispatch();
 
   return (
