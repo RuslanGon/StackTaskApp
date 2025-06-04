@@ -6,7 +6,11 @@ const baseQuery =  fetchBaseQuery({ baseUrl: API_URL })
 export const apiSlice = createApi({
     baseQuery,
     tagTypes: [],
-    endpoints: (builder) => ({})
+    endpoints: (builder) => ({
+        getUser: builder.query({
+          query: () => '/user', // GET http://localhost:8800/api/user
+        }),
+      }),
 })
 
 

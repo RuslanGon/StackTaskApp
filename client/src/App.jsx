@@ -8,6 +8,7 @@ import Trash from "./pages/Trash.jsx";
 import TaskDetails from "./pages/TaskDetails.jsx";
 import { Toaster } from 'sonner';
 import { useSelector } from "react-redux";
+import Sidebar from "./components/Sidebar.jsx";
 
 function App() {
 
@@ -20,7 +21,7 @@ function Layout() {
   return user ? (
     <div className="w-full h-screen flex flex-col md:flex-row">
       <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
       {/* <MobileSidebar /> */}
       <div className="flex-1 overflow-y-auto">
