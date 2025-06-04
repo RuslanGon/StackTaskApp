@@ -7,9 +7,15 @@ import Users from "./pages/Users.jsx";
 import Trash from "./pages/Trash.jsx";
 import TaskDetails from "./pages/TaskDetails.jsx";
 import { Toaster } from 'sonner';
-import { useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import Sidebar from "./components/Sidebar.jsx";
 import Navbar from "./components/Navbar.jsx";
+import { Fragment, useRef } from "react";
+import { setOpenSidebar } from "./redux/slices/authSlice.js";
+import clsx from "clsx";
+import { Transition } from "@headlessui/react";
+import { IoClose } from "react-icons/io5";
+
 
 function App() {
 
@@ -24,7 +30,7 @@ function Layout() {
       <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
         <Sidebar />
       </div>
-      {/* <MobileSidebar /> */}
+      <MobileSidebar />
       <div className="flex-1 overflow-y-auto">
         <Navbar />
         <div className="p-4 2xl:px-10">
@@ -36,6 +42,60 @@ function Layout() {
     <Navigate to="log-in" state={{ from: location }} replace />
   );
 }  
+
+const MobileSidebar = () => {
+  const  isSidebarOpen  = useSelector((state) => state.auth.isSidebarOpen);
+  const mobileMenuRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const closeSidebar = () => {
+    dispatch(setOpenSidebar(false));
+  }
+
+  return (
+    <>
+      <Transition
+  show={isSidebarOpen}
+  as={Fragment}
+  enter="transition-opacity duration-700"
+  enterFrom="opacity-0"
+  enterTo="opacity-100"
+  leave="transition-opacity duration-700"
+  leaveFrom="opacity-100"
+  leaveTo="opacity-0"
+>
+  <div
+    ref={mobileMenuRef}
+    className={clsx(
+      "fixed inset-0 z-50 md:hidden flex transition-all duration-700 transform",
+      isSidebarOpen ? "translate-x-0" : "translate-x-full"
+    )}
+    onClick={closeSidebar}
+  >
+    <div
+      className="bg-white w-3/4 h-full"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="w-full flex justify-end px-5 mt-5">
+        <button
+          onClick={closeSidebar}
+          className="flex justify-end items-end"
+        >
+          <IoClose size={25} />
+        </button>
+      </div>
+
+      <div className="-mt-10">
+        <Sidebar />
+      </div>
+    </div>
+    <div className="flex-1 bg-black/40" />
+  </div>
+</Transition>
+    </>
+  );
+
+}
 
   return (
     <main className="w-full min-h-screen bg-[#f3f4f6]">
