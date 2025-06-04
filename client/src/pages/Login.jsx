@@ -5,10 +5,11 @@ import "../App.css";
 import axios from 'axios'
 import Textbox from '../components/Textbox.jsx';
 import Button from '../components/Button.jsx';
+import { useSelector } from 'react-redux';
 
 
 const Login = () => {
-const user = ''
+const user = useSelector(state => state.auth.user)
 const { register, handleSubmit, formState: {errors}} = useForm()   
 const navigate = useNavigate()
 
@@ -22,9 +23,12 @@ try {
 }
 }
 
+// console.log(user);
+
 useEffect(() => {
     user && navigate('/dashboard')
 }, [navigate, user])
+
   return (
     <div
       className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row 

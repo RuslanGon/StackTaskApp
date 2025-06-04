@@ -7,11 +7,15 @@ import Users from "./pages/Users.jsx";
 import Trash from "./pages/Trash.jsx";
 import TaskDetails from "./pages/TaskDetails.jsx";
 import { Toaster } from 'sonner';
+import { useSelector } from "react-redux";
 
 function App() {
 
+const user = useSelector(state => state.auth.user)
+
+
 function Layout() {
-  const user = "";
+
   const location = useLocation();
   return user ? (
     <div className="w-full h-screen flex flex-col md:flex-row">
