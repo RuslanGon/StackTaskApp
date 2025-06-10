@@ -12,6 +12,7 @@ import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
 import {summary} from '../assets/data.js'
 import clsx from 'clsx';
+import Chart from '../components/Chart.jsx';
 
 
 const Dashboard = () => {
@@ -77,9 +78,14 @@ const Dashboard = () => {
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
+      <div className='w-full bg-white my-16 p-4 rounded shadow-sm'>
+        <h4 className='text-xl text-gray-600 font-semibold'>
+          Chart by Priority
+        </h4>
+        <Chart />
+      </div>
     </div>
   )
 }
-
 
 export default Dashboard;
