@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 import {
   MdAdminPanelSettings,
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
   MdKeyboardDoubleArrowUp,
+  MdEdit // <--- Додаємо MdEdit, якщо це потрібна іконка
 } from "react-icons/md";
-import { LuClipboardEdit } from "react-icons/lu";
+// import { LuClipboardEdit } from "react-icons/lu"; // <--- Закоментуємо або видалимо, якщо LuClipboardEdit не існує
 import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
@@ -13,6 +14,10 @@ import {summary} from '../assets/data.js'
 
 
 const Dashboard = () => {
+  // Змінна `totals` також не визначена. 
+  // Припустимо, вона має бути взята з `summary` або обчислена.
+  // Наприклад, якщо `summary` містить `totals` об'єкт:
+  const totals = summary?.totals || {}; 
 
   const stats = [
     {
@@ -33,15 +38,15 @@ const Dashboard = () => {
       _id: "3",
       label: "TASK IN PROGRESS ",
       total: totals["in progress"] || 0,
-      icon: <LuClipboardEdit />,
+      icon: <MdEdit />, // <--- Використовуємо MdEdit замість LuClipboardEdit
       bg: "bg-[#f59e0b]",
     },
     {
       _id: "4",
       label: "TODOS",
-      total: totals["todo"],
+      total: totals["todo"] || 0, 
       icon: <FaArrowsToDot />,
-      bg: "bg-[#be185d]" || 0,
+      bg: "bg-[#be185d]", 
     },
   ]; 
 
@@ -54,4 +59,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;
