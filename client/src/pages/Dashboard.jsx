@@ -105,7 +105,6 @@ const UserTable = ({ users }) => {
     </thead>
   );
 
-  
 
   const TableRow = ({ user }) => (
     <tr className='border-b border-gray-200  text-gray-600 hover:bg-gray-400/10'>
