@@ -8,6 +8,8 @@ import Loading from '../components/Loader.jsx';
 import Title from '../components/Title.jsx';
 import Button from '../components/Button.jsx';
 import Tabs from '../components/Tabs.jsx';
+import TaskTitle from '../components/TaskTitle.jsx';
+import BoardView from '../components/BoardView.jsx';
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -45,7 +47,25 @@ const Tasks = () => {
         )}
       </div>
       <div>
-        <Tabs tabs={TABS} setSelected={setSelected}></Tabs>
+        <Tabs tabs={TABS} setSelected={setSelected}>
+        {!status && (
+          <div className='w-full flex justify-between gap-4 md:gap-x-12 py-4'>
+            <TaskTitle label='To Do' className={TASK_TYPE.todo} />
+            <TaskTitle
+              label='In Progress'
+              className={TASK_TYPE["in progress"]}
+            />
+            <TaskTitle label='completed' className={TASK_TYPE.completed} />
+          </div>
+        )}
+         {selected !== 1 ? (
+          <BoardView tasks={tasks} />
+        ) : (
+          <div className='w-full'>
+            <Table tasks={tasks} />
+          </div>
+        )}
+        </Tabs>
       </div>
     </div>
   );
