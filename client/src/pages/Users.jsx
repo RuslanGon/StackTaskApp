@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-
-
 import { IoMdAdd } from "react-icons/io";
-
-
 import clsx from "clsx";
 import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
-
 import Title from "../components/Title.jsx";
 import Button from "../components/Button.jsx";
 import { summary } from "../assets/data.js";
