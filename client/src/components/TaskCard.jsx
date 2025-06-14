@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdKeyboardDoubleArrowUp } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import { PRIOTITYSTYELS } from '../utils/index.js';
+import { PRIOTITYSTYELS, TASK_TYPE, formatDate } from '../utils/index.js';
 import clsx from 'clsx';
 import TaskDialog from './task/TaskDialog.jsx';
 
@@ -28,8 +28,20 @@ const TaskCard = ({task}) => {
             <span className='text-lg'>{ICONS[task?.priority]}</span>
             <span className='uppercase'>{task?.priority} Priority</span>
           </div>
+
           {user?.isAdmin && <TaskDialog task={task} />}
         </div>
+        <>
+          <div className='flex items-center gap-2'>
+            <div
+              className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])}
+            />
+            <h4 className='line-clamp-1 text-black'>{task?.title}</h4>
+          </div>
+          <span className='text-sm text-gray-600'>
+            {formatDate(new Date(task?.date))}
+          </span>
+        </>
       </div>
     </>
   );
