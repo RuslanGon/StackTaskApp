@@ -16,7 +16,7 @@ import {
 } from "../../redux/slices/api/taskApiSlice";
 import { dateFormatter } from "../../utils";
 import { app } from "../../utils/firebase";
-import Button from "../Button";
+import Button from "../Button.jsx";
 
 import ModalWrapper from "../ModalWrapper.jsx";
 import SelectList from "../SelectList.jsx";
