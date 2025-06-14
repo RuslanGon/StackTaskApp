@@ -10,6 +10,7 @@ import Button from '../components/Button.jsx';
 import Tabs from '../components/Tabs.jsx';
 import TaskTitle from '../components/TaskTitle.jsx';
 import BoardView from '../components/BoardView.jsx';
+import Table from '../components/task/Table.jsx';
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
