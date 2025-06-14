@@ -4,7 +4,7 @@ import ModalWrapper from "../ModalWrapper.jsx";
 import Textbox from "../Textbox.jsx";
 import Button from "../Button.jsx";
 
-const AddSubTask = ({ open, setOpen, id }) => {
+const AddSubTask = ({ open, setOpen, }) => {
   const {
     register,
     handleSubmit,
@@ -13,7 +13,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
 
   // const [addSbTask] = useCreateSubTaskMutation();
 
-  const handleOnSubmit = async (data) => {
+  const handleOnSubmit = async () => {
     // try {
     //   const res = await addSbTask({ data, id }).unwrap();
     //   toast.success(res.message);
