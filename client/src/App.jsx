@@ -15,7 +15,6 @@ import { setOpenSidebar } from "./redux/slices/authSlice.js";
 import { Transition } from "@headlessui/react";
 import { IoClose } from "react-icons/io5";
 
-
 function App() {
 
 const user = useSelector(state => state.auth.user)
