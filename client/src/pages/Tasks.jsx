@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../components/Loader.jsx';
 import Title from '../components/Title.jsx';
 import Button from '../components/Button.jsx';
+import Tabs from '../components/Tabs.jsx';
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -42,6 +43,9 @@ const Tasks = () => {
             icon={<IoMdAdd className="text-lg" />}
           />
         )}
+      </div>
+      <div>
+        <Tabs tabs={TABS} setSelected={setSelected}></Tabs>
       </div>
     </div>
   );
