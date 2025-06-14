@@ -3,6 +3,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdKeyboardDoubleArrowUp } from 
 import { useSelector } from 'react-redux';
 import { PRIOTITYSTYELS } from '../utils/index.js';
 import clsx from 'clsx';
+import TaskDialog from './task/TaskDialog.jsx';
 
 const ICONS = {
     high: <MdKeyboardDoubleArrowUp />,
@@ -27,6 +28,7 @@ const TaskCard = ({task}) => {
             <span className='text-lg'>{ICONS[task?.priority]}</span>
             <span className='uppercase'>{task?.priority} Priority</span>
           </div>
+          {user?.isAdmin && <TaskDialog task={task} />}
         </div>
       </div>
     </>
