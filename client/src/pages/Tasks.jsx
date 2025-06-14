@@ -6,6 +6,7 @@ import { FaList } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loader.jsx';
 import Title from '../components/Title.jsx';
+import Button from '../components/Button.jsx';
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -34,6 +35,13 @@ const Tasks = () => {
     <div className="w-full">
       <div className="flex items-center justify-between mb-4">
         <Title title={status ? `${status} Tasks` : "Tasks"} />
+        {!status && (
+          <Button
+            className="flex flex-row-reverse gap-1 items-center bg-blue-600"
+            label="Create Task"
+            icon={<IoMdAdd className="text-lg" />}
+          />
+        )}
       </div>
     </div>
   );
