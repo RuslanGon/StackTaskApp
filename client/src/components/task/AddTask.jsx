@@ -20,8 +20,8 @@ import Button from "../Button.jsx";
 
 import ModalWrapper from "../ModalWrapper.jsx";
 import SelectList from "../SelectList.jsx";
-import Textbox from "../Textbox";
-import UserList from "./UsersSelect";
+import Textbox from "../Textbox.jsx";
+import UserList from "./UsersSelect.jsx";
 import Loading from "../Loader.jsx";
 
 const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"];
