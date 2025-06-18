@@ -19,7 +19,6 @@ const ICONS = {
 const TaskCard = ({task}) => {
   const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
-  console.log("MODAL OPEN STATE:", open);
 
   return (
     <>
@@ -109,7 +108,7 @@ const TaskCard = ({task}) => {
 
 
             // disabled={user.isAdmin ? false : true}
-            className='w-full flex gap-4 items-center text-sm text-gray-500 font-semibold disabled:cursor-not-allowed disabled:text-gray-300'
+            className='w-full flex gap-4 items-center text-sm text-gray-500 font-semibold disabled:cursor-not-allowed disabled:text-gray-300 cursor-pointer'
           >
             <IoMdAdd className='text-lg' />
             <span>ADD SUBTASK</span>
