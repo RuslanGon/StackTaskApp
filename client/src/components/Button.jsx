@@ -1,15 +1,17 @@
-import React from 'react'
-import clsx from 'clsx'
+import clsx from "clsx";
 
-const Button = ({icon, className, label, type,
-  //  onClick = () => {}
-  }) => {
+const Button = ({ className, label, type, onClick = () => {}, icon }) => {
   return (
-<button type={type || 'button'} className={clsx('px-3 py-2 outline-none rounded-2xl cursor-pointer', className)}>
-    <span>{label}</span>
-    {icon && icon}
-    </button>
-  )
-}
+    <button
+      type={type || "button"}
+      className={clsx("px-3 py-2 outline-none rounded cursor-pointer", className)}
+      onClick={onClick}
+    >
+      <span>{label}</span>
 
-export default Button
+      {icon && icon}
+    </button>
+  );
+};
+
+export default Button;
