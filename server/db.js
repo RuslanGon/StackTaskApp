@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 
 const startServer = async (app) => {
@@ -21,3 +22,4 @@ const startServer = async (app) => {
 };
 
 export default startServer;
+
